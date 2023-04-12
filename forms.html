@@ -1,0 +1,286 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Diagnóstico agente pequeno porte</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        <script src="./index.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        
+        <script>
+            $("#answer_quest").ready(function()
+                  {
+                  $("#answer_quest").change(function(){
+            if($(this).val() == "Sim1"){
+            $("#qst02").hide();
+        }
+        else
+{
+            $("#qst02").show();
+        }
+    });
+        $("#qst02").show();
+});
+        </script>
+
+        <script>
+            $("#answer_quest02").ready(function()
+                {
+                $("#answer_quest02").change(function(){
+            if($(this).val() == "Sim2"){
+            $("#btAtn").click(function exibir(){
+                $("#infoQuest2").show();
+            })
+            $("#qst03").hide();
+            $("#qst04").hide();
+            $("#qst05").hide();
+            $("#qst06").hide();
+            $("#qst07").hide();
+            $("#qst08").hide();
+        }
+        else
+        {
+            $("#qst03").show();
+            $("#qst04").show();
+            $("#qst05").show();
+            $("#qst06").show();
+            $("#qst07").show();
+            $("#qst08").show();
+            $("#infoQuest2").hide();
+        }
+        });
+            $("#qst03").show();
+            $("#qst04").show();
+            $("#qst05").show();
+            $("#qst06").show();
+            $("#qst07").show();
+            $("#qst08").show();
+            $("#infoQuest2").hide();
+        });
+        </script>
+
+        <script>
+            function hideField(){
+                $("#aaa").hide();
+            }
+        $(document).ready(function(){
+            hideField();
+            $("#answer_quest04").change(function(){
+                var result4 = $(this).val();
+                var result3 = $("#answer_quest03").val();
+                if(result3 == "Nao3" && result4 == "Nao4") {
+                    $("#aaa").show();
+                } else {
+                    $("#aaa").hide();
+                }
+            });
+        });
+        </script>
+
+        <script>
+            function informaResultadoTela(){
+                $("#resultA").hide();
+                $("#resultB").hide();
+                $("#resultC").hide();
+            }
+        $(document).ready(function(){
+            informaResultadoTela();
+            $("#answer_quest08").change(function(){
+                var result8 = $(this).val();
+                var result7 = $("#answer_quest07").val();
+                var result6 = $("#answer_quest06").val();
+                var result5 = $("#answer_quest05").val();
+                var result4 = $("#answer_quest04").val();
+                var result3 = $("#answer_quest03").val();
+                if(
+                result3 == "Sim3" &&
+                result4 == "Nao4" &&
+                result5 == "Sim5" ||
+                result6 == "Sim6" ||
+                result7 == "Sim7" ||
+                result8 == "Sim8"){
+                        $("#btAtn").click(function exibir(){
+                            $("#resultA").show();
+                            $("#resultB").hide();
+                            $("#resultC").hide();
+                            })
+                } else if(
+                result3 == "Nao3" &&
+                result4 == "Sim4" &&
+                result5 == "Sim5" ||
+                result6 == "Sim6" ||
+                result7 == "Sim7" ||
+                result8 == "Sim8") {
+                        $("#btAtn").click(function exibir(){
+                            $("#resultA").hide();
+                            $("#resultB").show();
+                            $("#resultC").hide();})
+                }
+                else {
+                    $("#resultA").hide();
+                    $("#resultB").hide();
+                    $("#resultC").show();   
+                }
+            })
+        })
+        </script>
+
+    
+    </head>
+        <body class="body-form">
+            <div class="div-form">
+                <div class="container">
+                <h2>Diagnóstico de agente</h2>
+                <br>
+                <form action="/action_page.php" >
+            <div class="form-group">
+                <label for="qst1" id="qst1">
+                1 - A pessoa jurídica pode ser enquadrada como uma startup nos termos da Lei Complementar n. 182/2021?
+                </label><br>
+                <select name="answer_quest" id="answer_quest">
+                    <option value="none" selected></option>
+                    <option value="Sim1">Sim</option>
+                    <option value="Nao1">Não</option>
+                </select>
+            </div>
+            </form>
+
+            <form action="/action_page.php">
+            <div id="qst02" class="form-group">
+                <label for="qst2">2 - A pessoa jurídica, incluindo o seu eventual grupo econômico, auferiu receita bruta superior a R$ 4.800.000,00 no exercício anterior? </label><br>
+                <select name="answer_quest02" id="answer_quest02">
+                    <option value="none" selected></option>
+                    <option value="Sim2">Sim</option>
+                    <option value="Nao2">Não</option>
+                </select>
+                <br>
+            </div>
+            </form>
+
+            <form action="/action_page.php">
+            <div id="qst03" class="form-group">
+                <label for="qst3">3 - A pessoa jurídica realiza tratamento de dados pessoais em larga escala (2)?</label><br>
+                <select name="answer_quest03" id="answer_quest03">
+                    <option value="none" selected></option>
+                    <option value="Sim3">Sim</option>
+                    <option value="Nao3">Não</option>
+                </select>
+            </div>
+            </form>
+
+            <form action="/action_page.php">
+            <div id="qst04" class="form-group">
+                <label for="email">4 - A pessoa jurídica realiza tratamento de dados pessoais que possa afetar significativamente interesses e direitos fundamentais dos titulares? (3)</label><br>
+                <select name="answer_quest04" id="answer_quest04">
+                    <option value="none" selected></option>
+                    <option value="Sim4">Sim</option>
+                    <option value="Nao4">Não</option>
+                </select>
+                <div id="aaa" class="alert alert-primary alert-dismissible">
+                    <span>
+                        Caso as RESPOSTAS 3 e 4 sejam NÃO. A pessoa jurídica pode ser enquadrada como agente de tratamento de pequeno porte, podendo adotar as seguintes flexibilidades:<br>(i) dispensa da obrigação de indicar encarregado;<br>  (ii) possibilidade de adotar registro de operações de tratamento de dados pessoais de forma simplificada;<br> (iii) disponbilizar informações e atender requisições dos titulares por meio eletrônico ou impresso;<br> (iv) seguir procedimento simplificado de comunicação de incidentes de segurança;<br> (v) adotar requisitos mínimos de segurança da informação;<br> (vi) estabelecer política simplificada de segurança da informação;<br> (vii) usufruir de prazos diferenciados para atender solicitações de titulares e comunicar incidentes de segurança.
+                    </span>
+                </div>
+            </div>
+            </form>
+
+            <form action="/action_page.php">
+            <div id="qst05" class="form-group">
+                <label for="email">5 - A pessoa jurídica utiliza tecnologias emergentes ou inovadoras no tratamento de dados pessoais?</label><br>
+                <select name="answer_quest05" id="answer_quest05">
+                    <option value="none"></option>
+                    <option value="Sim5">Sim</option>
+                    <option value="Nao5">Não</option>
+                </select>
+            </div>
+            </form>
+
+            <form action="/action_page.php">
+            <div id="qst06" class="form-group">
+                <label for="email">6 - A pessoa jurídica realiza atividade de vigilância ou controle de zonas acessíveis ao público?</label><br>
+                <select name="answer_quest06" id="answer_quest06">
+                    <option value="none"></option>
+                    <option value="Sim6">Sim</option>
+                    <option value="Nao6">Não</option>
+                </select>
+            </div>
+            </form>
+
+            <form action="/action_page.php">
+            <div id="qst07" class="form-group">
+                <label for="email">7 - A pessoa jurídica toma decisões unicamente com base em tratamento automatizado de dados pessoais, inclusive aquelas destinadas a definir o perfil pessoal, profissional, de saúde, de consumo e de crédito ou os aspectos da personalidade do titular?</label><br>
+                <select name="answer_quest07" id="answer_quest07">
+                    <option value="none"></option>
+                    <option value="Sim7">Sim</option>
+                    <option value="Nao7">Não</option>
+                </select>
+            </div>
+            </form>
+
+            <form action="/action_page.php">
+            <div id="qst08" class="form-group">
+                <label for="email">8 - A pessoa jurídica utiliza dados pessoais sensíveis (4), ou dados pessoais de crianças, de adolescentes (5) ou idosos (6)?</label><br>
+                <select name="answer_quest08" id="answer_quest08">
+                    <option value="none"></option>
+                    <option value="Sim8">Sim</option>
+                    <option value="Nao8">Não</option>
+                </select>
+            </div>
+            <br>
+            <button id="btAtn" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myAlert">Finalizar formulário</button>
+            <br>
+            <br>
+            <div id="infoQuest2" class="alert alert-primary alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>A pessoa jurídica não pode ser enquadrada como agente de pequeno porte, por força do art. 3o, II da Resolução n 02/2023 ANPD e deve nomear encarregado e cumprir integralmente todas as obrigações da LGPD.</strong>
+            </div>
+            </form>
+            <div class="container">
+                <div class="modal" id="myAlert">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                    
+                        <div class="modal-header">
+                        <h4 class="modal-title">Resultado</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        
+                        <div class="modal-body">
+                            <div id="resultA" class="alert alert-primary alert-dismissible">
+                                <strong>A pessoa jurídica não pode ser enquadrada como agente de pequeno porte, por força do art. 3o, II da Resolução n 02/2023 ANPD e deve nomear encarregado e cumprir integralmente todas as obrigações da LGPD.</strong>
+                            </div>
+                                
+                            <div id="resultB" class="alert alert-primary alert-dismissible">
+                                <strong>A pessoa jurídica não pode ser enquadrada como agente de pequeno porte, por força do art. 3o, II da Resolução n 02/2023 ANPD e deve nomear encarregado e cumprir integralmente todas as obrigações da LGPD.</strong>
+                            </div>
+                                
+                            <div id="resultC" class="alert alert-primary alert-dismissible">
+                                <strong>A pessoa jurídica pode ser enquadrada como agente de tratamento de pequeno, podendo adotar as seguintes flexibilidades:<br>(i) dispensa da obrigação de indicar encarregado;<br>(ii) possibilidade de adotar registro de operações de tratamento de dados pessoais de forma simplificada;<br>(iii) disponibilizar informações e atender requisições dos titulares por meio eletrônico ou impresso; (iv) seguir procedimento simplificado de comunicação de incidentes de segurança;<br>(v) adotar requisitos mínimos de segurança da informação; (vi) estabelecer política simplificada de segurança da informação;<br> (vii) usufruir de prazos diferenciados para atender solicitações de titulares e comunicar incidentes de segurança.</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <a href="/forms.html" class="center">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                Fechar
+                              </a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+        </div>
+    </body>
+</html>
